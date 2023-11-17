@@ -1,0 +1,17 @@
+<div class="list-container">
+  <div class="post-list" #postList>
+    <div  *ngFor="let post of posts; index as i">
+      <div class="post" trackVisibility (itemViewed)="itemViewed(i)">
+        <h2>{{ post.title }}</h2>
+        <p class="mb-3">{{ post.body }}</p>
+        <p> <strong>Created on:</strong>  {{ post.createdDate | date }}</p>
+        <p> <strong>Author:</strong>  {{ post.author }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="loading" class="text-center">
+      Loading Data ...
+    </div>
+  </div>
+</div>
+
